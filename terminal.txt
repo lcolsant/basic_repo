@@ -1,0 +1,205 @@
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\lcolsant>cd Desktop
+
+C:\Users\lcolsant\Desktop>mkdir branching_test
+
+C:\Users\lcolsant\Desktop>cd branching_test
+
+C:\Users\lcolsant\Desktop\branching_test>copy NUL sample.txt
+        1 file(s) copied.
+
+C:\Users\lcolsant\Desktop\branching_test>sample.txt
+
+C:\Users\lcolsant\Desktop\branching_test>git init
+Initialized empty Git repository in C:/Users/lcolsant/Desktop/branching_test/.gi
+t/
+
+C:\Users\lcolsant\Desktop\branching_test>git add .
+
+C:\Users\lcolsant\Desktop\branching_test>git commit -m "initial commit"
+[master (root-commit) 1e7aaa7] initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 sample.txt
+
+C:\Users\lcolsant\Desktop\branching_test>git checkout -b "update_our_text"
+Switched to a new branch 'update_our_text'
+
+C:\Users\lcolsant\Desktop\branching_test>git branch
+  master
+* update_our_text
+
+C:\Users\lcolsant\Desktop\branching_test>sample.txt
+
+C:\Users\lcolsant\Desktop\branching_test>git add sample.txt
+
+C:\Users\lcolsant\Desktop\branching_test>git commit -am "Added a new line"
+[update_our_text 235ffe7] Added a new line
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\Users\lcolsant\Desktop\branching_test>git checkout master
+Switched to branch 'master'
+
+C:\Users\lcolsant\Desktop\branching_test>sample.txt
+
+C:\Users\lcolsant\Desktop\branching_test>git branch
+* master
+  update_our_text
+
+C:\Users\lcolsant\Desktop\branching_test>git checkout update_our_text
+Switched to branch 'update_our_text'
+
+C:\Users\lcolsant\Desktop\branching_test>sample.txt
+
+C:\Users\lcolsant\Desktop\branching_test>git checkout master
+Switched to branch 'master'
+
+C:\Users\lcolsant\Desktop\branching_test>git branch
+* master
+  update_our_text
+
+C:\Users\lcolsant\Desktop\branching_test>git checkout update_our_text
+Switched to branch 'update_our_text'
+
+C:\Users\lcolsant\Desktop\branching_test>git branch
+  master
+* update_our_text
+
+C:\Users\lcolsant\Desktop\branching_test>git checkout -b "new_feature"
+Switched to a new branch 'new_feature'
+
+C:\Users\lcolsant\Desktop\branching_test>git branch
+  master
+* new_feature
+  update_our_text
+
+C:\Users\lcolsant\Desktop\branching_test>copy NUL animal.txt
+        1 file(s) copied.
+
+C:\Users\lcolsant\Desktop\branching_test>animal.txt
+
+C:\Users\lcolsant\Desktop\branching_test>git add animal.txt
+
+C:\Users\lcolsant\Desktop\branching_test>git commit -m "added some animal inform
+ation"
+[new_feature a1078b8] added some animal information
+ 1 file changed, 1 insertion(+)
+ create mode 100644 animal.txt
+
+C:\Users\lcolsant\Desktop\branching_test>git checkout master
+Switched to branch 'master'
+
+C:\Users\lcolsant\Desktop\branching_test>git merge new_feature
+Updating 1e7aaa7..a1078b8
+Fast-forward
+ animal.txt | 1 +
+ sample.txt | 3 ++-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 animal.txt
+
+C:\Users\lcolsant\Desktop\branching_test>git branch
+* master
+  new_feature
+  update_our_text
+
+C:\Users\lcolsant\Desktop\branching_test>cd..
+
+C:\Users\lcolsant\Desktop>mkdir basic_repo
+
+C:\Users\lcolsant\Desktop>cd basic_repo
+
+C:\Users\lcolsant\Desktop\basic_repo>dir
+ Volume in drive C is OSDisk
+ Volume Serial Number is 0A41-A126
+
+ Directory of C:\Users\lcolsant\Desktop\basic_repo
+
+12/20/2017  05:26 PM    <DIR>          .
+12/20/2017  05:26 PM    <DIR>          ..
+               0 File(s)              0 bytes
+               2 Dir(s)  241,450,012,672 bytes free
+
+C:\Users\lcolsant\Desktop\basic_repo>git init
+Initialized empty Git repository in C:/Users/lcolsant/Desktop/basic_repo/.git/
+
+C:\Users\lcolsant\Desktop\basic_repo>copy NUL myName.txt
+        1 file(s) copied.
+
+C:\Users\lcolsant\Desktop\basic_repo>copy NUL readMe.txt
+        1 file(s) copied.
+
+C:\Users\lcolsant\Desktop\basic_repo>myName.txt
+
+C:\Users\lcolsant\Desktop\basic_repo>readMe.txt
+
+C:\Users\lcolsant\Desktop\basic_repo>git add .
+
+C:\Users\lcolsant\Desktop\basic_repo>git commit -m "adding practice files"
+[master (root-commit) 1d25b20] adding practice files
+ 2 files changed, 2 insertions(+)
+ create mode 100644 myName.txt
+ create mode 100644 readMe.txt
+
+C:\Users\lcolsant\Desktop\basic_repo>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\lcolsant\Desktop\basic_repo>git log
+commit 1d25b2010d6c3faa1e9daaaaa900bb42aa9f8ef5 (HEAD -> master)
+Author: lcolsant <lee.colsant@gmail.com>
+Date:   Wed Dec 20 17:29:18 2017 -0800
+
+    adding practice files
+
+C:\Users\lcolsant\Desktop\basic_repo>git remote add origin https://github.com/lc
+olsant/basic_repo.git
+
+C:\Users\lcolsant\Desktop\basic_repo>git push -u origin master
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 300 bytes | 300.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+To https://github.com/lcolsant/basic_repo.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+C:\Users\lcolsant\Desktop\basic_repo>readMe.txt
+
+C:\Users\lcolsant\Desktop\basic_repo>git add .
+
+C:\Users\lcolsant\Desktop\basic_repo>git push origin master
+Everything up-to-date
+
+C:\Users\lcolsant\Desktop\basic_repo>git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readMe.txt
+
+
+C:\Users\lcolsant\Desktop\basic_repo>readMe.txt
+
+C:\Users\lcolsant\Desktop\basic_repo>git add .
+
+C:\Users\lcolsant\Desktop\basic_repo>git commit -m "modified readMe"
+[master 8f84bed] modified readMe
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+C:\Users\lcolsant\Desktop\basic_repo>git push origin master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 346 bytes | 346.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/lcolsant/basic_repo.git
+   1d25b20..8f84bed  master -> master
+
+C:\Users\lcolsant\Desktop\basic_repo>copy NUL terminal.txt
+        1 file(s) copied.
+
+C:\Users\lcolsant\Desktop\basic_repo>
